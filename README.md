@@ -10,6 +10,10 @@ By Ian Gregg & Vera Weikel
 
 A survey using react and firestore, through the practice of a week long project.
 
+## Schema
+
+![Schema](assets/schema.png)
+
 ## Setup/Installation Requirements
 
 * to clone this content, copy the url provided by the `clone or download` button in GitHub
