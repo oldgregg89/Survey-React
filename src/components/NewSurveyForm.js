@@ -12,7 +12,7 @@ function NewSurveyForm(props) {
   function addSurveyToFirestore(event){
     event.preventDefault();
     props.onNewSurveyCreation();
-    return firestore.collection('tickets').add(
+    return firestore.collection('surveys').add(
       {
         name: event.target.name.value,
         question1: event.target.question1.value,
@@ -29,8 +29,6 @@ function NewSurveyForm(props) {
     event.preventDefault();
     props.onNewSurveyCreation({names: event.target.names.value, question1: event.target.question1.value, question2: event.target.question2.value, question3: event.target.question3.value, question4: event.target.question4.value, question5: event.target.question5.value, id: v4()});
   }
-
-  
 
   return (
     <React.Fragment>

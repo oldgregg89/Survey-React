@@ -4,6 +4,7 @@ import SurveyList from "./SurveyList";
 import SurveyDetail from "./SurveyDetail";
 import SurveyEditForm from './SurveyEditForm';
 import Button from 'react-bootstrap/Button';
+import { withFirestore } from 'react-redux-firebase'
 
 class SurveyControl extends React.Component {
 
@@ -106,3 +107,5 @@ class SurveyControl extends React.Component {
     );
   }
 }
+
+export default withFirestore(SurveyControl);

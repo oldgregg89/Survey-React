@@ -12,19 +12,6 @@ export default class ResponseControl extends React.Component {
         selectedResponse: null,
         editing: false,
       };
-    }
-
-    handleClick = () => {
-        if (this.state.selectedSurvey != null) {
-          this.setState({
-            formVisibleOnPage: false,
-            selectedSurvey: null,
-            editing: false
-            });
-        } else {
-          this.setState(prevState => ({
-            formVisibleOnPage: !prevState.formVisibleOnPage,
-          }));
-        }
-      }
+    } 
+    
 }
