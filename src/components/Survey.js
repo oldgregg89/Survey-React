@@ -1,7 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector} from 'react-redux';
+import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 
 function Survey(props){
+
+  useFirestoreConnect([
+    {collection: 'surveys'}
+  ]);
+
+  const surveys = useSelector(state => state.firestore.ordered.surveys);
+
   return(
     <React.Fragment>
       <div onClick = {() => props.whenSurveyClicked(props.id)}>
