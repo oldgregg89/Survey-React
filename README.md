@@ -4,7 +4,7 @@
 
 #### _Survey UI made with react, 2020 ver 1.0.0_
 
-By Ian Gregg & Vera Weikel
+By Ian Gregg & Vera Weikel & Erich Richter & Christine Augustine
 
 ## Description 
 
@@ -97,10 +97,12 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 * Ian Gregg: <iangregg188@gmail.com>
 * Vera Weikel: <vera.weikel@gmail.com>
+* Erich Richte <erich.richter@gmail.com>
+* Christine Augustine <blacchoy@gmail.com>
 
 ## License
 
-Copyright (c) 2020 **_Ian Gregg & Vera Weikel_**
+Copyright (c) 2020 **_Ian Gregg & Vera Weikel & Erich Richter & Christine Augustine_**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
