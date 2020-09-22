@@ -12,7 +12,7 @@ A survey using react and firestore, through the practice of a week long project.
 
 ## Schema
 
-![Schema](assets/schema.png)
+![Schema](assets/Updated-Schema.png)
 
 ## Setup/Installation Requirements
 
