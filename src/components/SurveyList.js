@@ -11,11 +11,11 @@ function SurveyList(props) {
 
   const surveys = useSelector(state => state.firestore.ordered.surveys);
 
-  if (isloaded(surveys)) {
+  if (isLoaded(surveys)) {
     return (
       <React.Fragment>
         <hr/>
-        {ticket.map((survey) => {
+        {surveys.map((survey) => {
           return <Survey
             whenSurveyClicked = { props.onSurveySelection}
             name = {survey.name}
@@ -24,8 +24,8 @@ function SurveyList(props) {
             question3 = {survey.question3}
             question4 = {survey.question4}
             question5 = {survey.question5}
-            id = {survey.id}
-            key = {survey.id} />
+            id = {surveys.id}
+            key = {surveys.id} />
         })}
       </React.Fragment>
     );

@@ -2,7 +2,7 @@ import React from "react";
 import NewSurveyForm from "./NewSurveyForm";
 import SurveyList from "./SurveyList";
 import SurveyDetail from "./SurveyDetail";
-import SurveyEditForm from './SurveyEditForm';
+import SurveyEditForm from 'src/components/SurveyEditForm.js';
 import Button from 'react-bootstrap/Button';
 import { withFirestore } from 'react-redux-firebase'
 
@@ -52,16 +52,16 @@ class SurveyControl extends React.Component {
     }
   }
 
-  handleAddingNewSurveyToList = () => {
-    const { dispatch } = this.props;
-    const action = a.toggleForm();
-    dispatch(action);
+  // handleAddingNewSurveyToList = () => {
+  //   const { dispatch } = this.props;
+  //   const action = a.toggleForm();
+  //   dispatch(action);
     // const newMasterSurveyList = this.state.masterSurveyList.concat(newSurvey);
     // this.setState({
     //   masterSurveyList: newMasterSurveyist,
     //   formVisibleOnPage: false
     // });
-  }
+  //}
 
   // handleDeletingSurvey = (id) => {
   //   const newMasterSurveyList = this.state.masterSurveyList.filter(survey => survey.id !==id);
@@ -76,30 +76,30 @@ class SurveyControl extends React.Component {
     this.setState({selectedSurvey: null});
   }
 
-  // handleEditingSurveyInList = (surveyToEdit) => {
-  //   const editedMasterSurveyList = this.state.masterSurveyList
-  //     .filter(survey => survey.id !== this.state.selectedSurvey.id)
-  //     .concat(surveyToEdit);
-  //   this.setState({
-  //     masterSurveyList: editedMasterSurveyList,
-  //     editing: false,
-  //     selectedSurvey: null
-  //   });
-  // }
-
-  handleEditingSurveyInList = () => {
+  handleEditingSurveyInList = (surveyToEdit) => {
+    const editedMasterSurveyList = this.state.masterSurveyList
+      .filter(survey => survey.id !== this.state.selectedSurvey.id)
+      .concat(surveyToEdit);
     this.setState({
+      masterSurveyList: editedMasterSurveyList,
       editing: false,
       selectedSurvey: null
     });
   }
+
+  // handleEditingSurveyInList = () => {
+  //   this.setState({
+  //     editing: false,
+  //     selectedSurvey: null
+  //   });
+  // }
 
 
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.editing ) {      
-      currentlyVisibleState = <EditSurveyForm
+      currentlyVisibleState = <SurveyEditForm
       keg = {this.state.selectedSurvey}
       onEditSurvey = {this.handleEditingSurveyInList} />
       buttonText = "Return to Keg List";

@@ -5,7 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function Header (props) {
   return (
-    <ReactFragment>
+    <React.Fragment>
       <Navbar.Brand href= '#home'><h1>Survey</h1></Navbar.Brand>
       <Navbar.Toggle aria-controls='basic-navbar-nav'/>
       <Navbar.Collapse id='basic-navbar-nav'>
@@ -21,7 +21,7 @@ function Header (props) {
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
-    </ReactFragment>
+    </React.Fragment>
   );
 }
 

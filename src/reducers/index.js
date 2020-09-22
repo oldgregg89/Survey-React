@@ -1,3 +1,4 @@
+import formVisibleReducer from './form-visible-reducer';
 import { firestoreReducer } from 'redux-firestore';
 import surveyListReducer from './survey-list-reducer'
 import { combineReducers } from 'redux';
