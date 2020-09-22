@@ -24,8 +24,18 @@ class SurveyControl extends React.Component {
   }
 
   handleChangingSelectedSurvey = (id) => {
-    const selectedSurvey = this.state.masterSurveyList.filter(survey => survey.id === id)[0];
-    this.setState({selectedSurvey: selectedSurvey});
+    this.props.firestore.get({collection: 'surveys', doc: id}).then((survey) => {
+      const firestoreSurvey= {
+        name: survey.get("name"),
+        question1: survey.get("question1"),
+        question2: survey.get("question2"),
+        question3: survey.get("question3"),
+        question4: survey.get("question4"),
+        question5: survey.get("question5"),
+        id: survey.id
+      }
+      this.setState({selectedSurvey: firestoreSurvey});
+    });
   }
 
   handleClick = () => {
@@ -42,12 +52,15 @@ class SurveyControl extends React.Component {
     }
   }
 
-  handleAddingNewSurveyToList = (newSurvey) => {
-    const newMasterSurveyList = this.state.masterSurveyList.concat(newSurvey);
-    this.setState({
-      masterSurveyList: newMasterSurveyist,
-      formVisibleOnPage: false
-    });
+  handleAddingNewSurveyToList = () => {
+    const { dispatch } = this.props;
+    const action = a.toggleForm();
+    dispatch(action);
+    // const newMasterSurveyList = this.state.masterSurveyList.concat(newSurvey);
+    // this.setState({
+    //   masterSurveyList: newMasterSurveyist,
+    //   formVisibleOnPage: false
+    // });
   }
 
   handleDeletingSurvey = (id) => {
@@ -58,16 +71,24 @@ class SurveyControl extends React.Component {
     });
   }
 
-  handleEditingSurveyInList = (surveyToEdit) => {
-    const editedMasterSurveyList = this.state.masterSurveyList
-      .filter(survey => survey.id !== this.state.selectedSurvey.id)
-      .concat(surveyToEdit);
+  // handleEditingSurveyInList = (surveyToEdit) => {
+  //   const editedMasterSurveyList = this.state.masterSurveyList
+  //     .filter(survey => survey.id !== this.state.selectedSurvey.id)
+  //     .concat(surveyToEdit);
+  //   this.setState({
+  //     masterSurveyList: editedMasterSurveyList,
+  //     editing: false,
+  //     selectedSurvey: null
+  //   });
+  // }
+
+  handleEditingSurveyInList = () => {
     this.setState({
-      masterSurveyList: editedMasterSurveyList,
       editing: false,
       selectedSurvey: null
     });
   }
+
 
   render(){
     let currentlyVisibleState = null;
