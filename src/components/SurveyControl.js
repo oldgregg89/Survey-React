@@ -63,12 +63,17 @@ class SurveyControl extends React.Component {
     // });
   }
 
+  // handleDeletingSurvey = (id) => {
+  //   const newMasterSurveyList = this.state.masterSurveyList.filter(survey => survey.id !==id);
+  //   this.setState({
+  //     masterSurveyList: newMasterSurveyList,
+  //     selectedSurvey: null
+  //   });
+  // }
+
   handleDeletingSurvey = (id) => {
-    const newMasterSurveyList = this.state.masterSurveyList.filter(survey => survey.id !==id);
-    this.setState({
-      masterSurveyList: newMasterSurveyList,
-      selectedSurvey: null
-    });
+    this.props.firestore.delete({collection: 'surveys', doc: id});
+    this.setState({selectedSurvey: null});
   }
 
   // handleEditingSurveyInList = (surveyToEdit) => {
