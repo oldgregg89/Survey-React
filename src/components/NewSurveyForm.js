@@ -8,9 +8,9 @@ function NewSurveyForm(props) {
 
   const firestore = useFirestore();
 
-  function addSurveyToFirestore(event){
+  function addSurveyToFirestore(event) {
     event.preventDefault();
-    props.onNewSurveyCreation();
+    //props.onNewSurveyCreation();
     return firestore.collection('surveys').add(
       {
         name: event.target.name.value,
@@ -19,21 +19,21 @@ function NewSurveyForm(props) {
         question3: event.target.question3.value,
         question4: event.target.question4.value,
         question5: event.target.question5.value,
-        timeOpen: firestore.FeildValue.serverTimeStamp()
+        timeOpen: firestore.FieldValue.serverTimeStamp()
       }
     );
   }
 
   function handleNewSurveyForm(event) {
     event.preventDefault();
-    props.onNewSurveyCreation({names: event.target.names.value, question1: event.target.question1.value, question2: event.target.question2.value, question3: event.target.question3.value, question4: event.target.question4.value, question5: event.target.question5.value, id: v4()});
+    props.onNewSurveyCreation({ names: event.target.names.value, question1: event.target.question1.value, question2: event.target.question2.value, question3: event.target.question3.value, question4: event.target.question4.value, question5: event.target.question5.value, id: v4() });
   }
 
   return (
     <React.Fragment>
       <ReusableForm
-      formSubmissionHandler = {addSurveyToFirestore}
-      buttonText = "Add Survey!" />
+        formSubmissionHandler={addSurveyToFirestore}
+        buttonText="Add Survey!" />
     </React.Fragment>
   );
 }

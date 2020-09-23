@@ -7,7 +7,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 
-// <div > "this"</div >
 function Header() {
   return (
     <Navbar bg="light" expand="lg">
