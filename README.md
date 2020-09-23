@@ -44,6 +44,10 @@ A survey using react and firestore, through the practice of a week long project.
 | 6) | `npm i react-bootstrap 1.3.0` |
 |:---:| :----------------------------------------:   |
 
+if everything is loaded properly you should see this homescreen after running `npm run start`:
+
+![homescreen](assets/homescreen.png)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
