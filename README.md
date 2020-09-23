@@ -23,13 +23,15 @@ A survey using react and firestore, through the practice of a week long project.
 * then run `npm run start`
 * run `npm test` to run testing
 
---Installation Requirements
-- npm install redux@4.0.5 react-redux@7.1.3
-- npm install react-redux-firebase@3.1.1 redux-firestore@0.12.0
-- npnpm install react-router-dom@5.1.2
-- npm install firebase@7.8.0
-- npm install firebase-tools@7.13.1
-- npm i react-bootstrap 1.3.0
+| Installation Requirements |
+ : ----------------------- :|
+ `npm install redux@4.0.5 react-redux@7.1.3` 
+| `npm install react-redux-firebase@3.1.1 redux-firestore@0.12.0` |
+  `npm install react-router-dom@5.1.2` |
+  `npm install firebase@7.8.0` 
+| `npm install firebase-tools@7.13.1`
+| `npm i react-bootstrap 1.3.0` |
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -104,7 +106,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 * Ian Gregg: <iangregg188@gmail.com>
 * Vera Weikel: <vera.weikel@gmail.com>
-* Erich Richte <erich.richter@gmail.com>
+* Erich Richter <erich.richter@gmail.com>
 * Christine Augustine <blacchoy@gmail.com>
 
 ## License
