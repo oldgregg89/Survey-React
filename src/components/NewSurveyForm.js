@@ -10,7 +10,8 @@ function NewSurveyForm(props) {
 
   function addSurveyToFirestore(event) {
     event.preventDefault();
-    //props.onNewSurveyCreation();
+    props.onNewSurveyCreation();
+
     return firestore.collection('surveys').add(
       {
         name: event.target.name.value,
@@ -19,7 +20,7 @@ function NewSurveyForm(props) {
         question3: event.target.question3.value,
         question4: event.target.question4.value,
         question5: event.target.question5.value,
-        timeOpen: firestore.FieldValue.serverTimeStamp()
+        timeOpen: firestore.FieldValue.serverTimestamp()
       }
     );
   }
@@ -37,5 +38,9 @@ function NewSurveyForm(props) {
     </React.Fragment>
   );
 }
+
+NewSurveyForm.propTypes = {
+  onNewSurveyCreation: PropTypes.func
+};
 
 export default NewSurveyForm;

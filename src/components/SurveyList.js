@@ -24,6 +24,7 @@ function SurveyList(props) {
             question3 = {survey.question3}
             question4 = {survey.question4}
             question5 = {survey.question5}
+            formattedWaitTime = {survey.formmattedWaitTime}
             id = {surveys.id}
             key = {surveys.id} />
         })}

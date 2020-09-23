@@ -10,8 +10,8 @@ function ReusableForm(props) {
         <Form.Group>
           <Form.Control
             type='text'
-            name='names'
-            placeholder='Names' />
+            name='name'
+            placeholder='Name' />
         </Form.Group>
         <Form.Group>
           <Form.Control
@@ -54,6 +54,7 @@ function ReusableForm(props) {
 ReusableForm.propTypes = {
   formSubmissionHandler: PropTypes.func,
   buttonText: PropTypes.string
+  
 };
 
 export default ReusableForm;

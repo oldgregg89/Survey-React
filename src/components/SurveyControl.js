@@ -5,14 +5,16 @@ import SurveyDetail from "./SurveyDetail";
 import SurveyEditForm from './SurveyEditForm';
 import Button from 'react-bootstrap/Button';
 import { withFirestore } from 'react-redux-firebase'
+import { connect } from 'react-redux';
+import * as a from './../actions/Index.js';
 
 class SurveyControl extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      formvisableOnPage: false,
-      masterSurveyList: [],
+      // formvisableOnPage: false,
+      // masterSurveyList: [],
       selectedSurvey: null,
       editing: false,
     };
@@ -52,16 +54,16 @@ class SurveyControl extends React.Component {
     }
   }
 
-  // handleAddingNewSurveyToList = () => {
-  //   const { dispatch } = this.props;
-  //   const action = a.toggleForm();
-  //   dispatch(action);
+  handleAddingNewSurveyToList = () => {
+    const { dispatch } = this.props;
+    const action = a.toggleForm();
+    dispatch(action);
   // const newMasterSurveyList = this.state.masterSurveyList.concat(newSurvey);
   // this.setState({
-  //   masterSurveyList: newMasterSurveyist,
+  //   masterSurveyList: newMasterSurveyList,
   //   formVisibleOnPage: false
   // });
-  //}
+  }
 
   // handleDeletingSurvey = (id) => {
   //   const newMasterSurveyList = this.state.masterSurveyList.filter(survey => survey.id !==id);
@@ -108,7 +110,7 @@ class SurveyControl extends React.Component {
       currentlyVisibleState = <SurveyEditForm
         keg={this.state.selectedSurvey}
         onEditSurvey={this.handleEditingSurveyInList} />
-      buttonText = "Return to Keg List";
+      buttonText = "Return to Survey List";
     } else if (this.state.selectedSurvey != null) {
       currentlyVisibleState = <SurveyDetail
         survey={this.state.selectedSurvey}
@@ -139,5 +141,13 @@ class SurveyControl extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    formVisibleOnPage: state.formVisibleOnPage
+  }
+}
+
+SurveyControl = connect(mapStateToProps)(SurveyControl);
 
 export default withFirestore(SurveyControl);
