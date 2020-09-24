@@ -13,8 +13,6 @@ class SurveyControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // formvisableOnPage: false,
-      // masterSurveyList: [],
       selectedSurvey: null,
       editing: false,
     };
@@ -43,14 +41,13 @@ class SurveyControl extends React.Component {
   handleClick = () => {
     if (this.state.selectedSurvey != null) {
       this.setState({
-        formVisibleOnPage: false,
         selectedSurvey: null,
         editing: false
       });
     } else {
-      this.setState(prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage,
-      }));
+      const { dispatch } = this.props;
+      const action = a.toggleForm();
+      dispatch(action);
     }
   }
 
@@ -58,11 +55,6 @@ class SurveyControl extends React.Component {
     const { dispatch } = this.props;
     const action = a.toggleForm();
     dispatch(action);
-  // const newMasterSurveyList = this.state.masterSurveyList.concat(newSurvey);
-  // this.setState({
-  //   masterSurveyList: newMasterSurveyList,
-  //   formVisibleOnPage: false
-  // });
   }
 
   // handleDeletingSurvey = (id) => {
@@ -85,11 +77,7 @@ class SurveyControl extends React.Component {
   }
 
   handleEditingSurveyInList = (surveyToEdit) => {
-    const editedMasterSurveyList = this.state.masterSurveyList
-      .filter(survey => survey.id !== this.state.selectedSurvey.id)
-      .concat(surveyToEdit);
     this.setState({
-      masterSurveyList: editedMasterSurveyList,
       editing: false,
       selectedSurvey: null
     });
@@ -108,13 +96,12 @@ class SurveyControl extends React.Component {
     let buttonText = null;
     if (this.state.editing) {
       currentlyVisibleState = <SurveyEditForm
-        keg={this.state.selectedSurvey}
-        onEditSurvey={this.handleEditingSurveyInList} />
+        survey = {this.state.selectedSurvey}
+        onEditSurvey = {this.handleEditingSurveyInList} />
       buttonText = "Return to Survey List";
     } else if (this.state.selectedSurvey != null) {
       currentlyVisibleState = <SurveyDetail
-        survey={this.state.selectedSurvey}
-        onSellingPint={this.handleRemovingPint}
+        survey = {this.state.selectedSurvey}
         onClickingDelete={this.handleDeletingSurvey}
         onClickingEdit={this.handleEditClick} />
       buttonText = "Return to Survey List";
@@ -124,8 +111,8 @@ class SurveyControl extends React.Component {
     } else {
       currentlyVisibleState =
         <SurveyList
-          surveyList={this.state.masterSurveyList}
-          onSurveySelection={this.handleChangingSelectedSurvey} />
+          surveyList = {this.state.masterSurveyList}
+          onSurveySelection = {this.handleChangingSelectedSurvey} />
       buttonText = "Add survey"
     }
     return (
